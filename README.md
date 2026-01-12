@@ -125,3 +125,4 @@ Feel free to add your own practice files! Follow the existing structure:
 ## 📄 License
 
 This project is open source and available for learning purposes.
+# js Ts learning

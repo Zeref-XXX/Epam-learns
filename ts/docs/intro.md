@@ -1,0 +1,16 @@
+
+## 🎯 Learning Outcomes
+
+By the end of this module, you will be able to:
+
+* Understand what **TypeScript** is, why it is used, and how it enhances JavaScript development.
+* Set up a **TypeScript development environment** and configure `tsconfig.json` for project compilation.
+* Declare and use **basic types** (`string`, `number`, `boolean`, etc.) and **complex types** (arrays, tuples, enums).
+* Differentiate between **type aliases** and **interfaces**, and know when to use each.
+* Apply **access modifiers** (`public`, `private`, `protected`) and understand their impact on class design.
+* Work with **functions** in TypeScript, including optional and default parameters, return types, and function overloading.
+* Implement **classes**, **constructors**, and **inheritance** with strong typing.
+* Use **generics** to write reusable and type-safe functions, classes, and interfaces.
+* Handle **union** and **intersection** types, and apply **type guards** for safe type checking.
+* Understand and apply **decorators**, **modules**, and **namespaces** for scalable application development.
+* Compile TypeScript into **JavaScript** and debug common issues during the build process.
