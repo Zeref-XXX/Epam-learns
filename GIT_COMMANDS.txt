@@ -1,0 +1,214 @@
+GIT COMMANDS CHEATSHEET
+=======================
+
+Purpose: Quick, practical Git commands with concise use-cases. Includes the exact commands used in this repository session at the end.
+
+------------------------------------------------------------
+BASICS: SETUP & IDENTITY
+------------------------------------------------------------
+# Set your identity (once per machine)
+  git config --global user.name "Your Name"
+  git config --global user.email "you@example.com"
+
+# Initialize a new repo in current folder
+  git init
+
+# Clone an existing repo
+  git clone <repo-url>
+
+# See config values
+  git config --list --show-origin
+
+------------------------------------------------------------
+WORKING DIRECTORY, STAGING, COMMITTING
+------------------------------------------------------------
+# Show short status (branch + changes)
+  git status -sb
+
+# Stage files
+  git add <file>
+  git add .            # Stage everything
+
+# Unstage a file (keep changes in working dir)
+  git restore --staged <file>
+
+# Commit staged changes
+  git commit -m "Meaningful, imperative commit message"
+
+# Amend the last commit (message or staged changes)
+  git commit --amend
+
+------------------------------------------------------------
+INSPECTING HISTORY
+------------------------------------------------------------
+# View commit log (graph, one-line)
+  git log --oneline --graph --decorate --all
+
+# Show a commit’s details
+  git show <commit>
+
+# Compare changes
+  git diff                     # unstaged changes
+  git diff --staged            # staged vs HEAD
+  git diff <branchA>..<branchB>
+
+------------------------------------------------------------
+BRANCHING & SWITCHING
+------------------------------------------------------------
+# List branches
+  git branch
+
+# Create and switch to a new branch
+  git switch -c <new-branch>
+# or
+  git checkout -b <new-branch>
+
+# Switch branches
+  git switch <branch>
+
+# Delete local branch (merged)
+  git branch -d <branch>
+# Force delete (unmerged)
+  git branch -D <branch>
+
+------------------------------------------------------------
+REMOTES & SYNCHRONIZATION
+------------------------------------------------------------
+# Show remotes
+  git remote -v
+
+# Add/set remote
+  git remote add origin <url>
+  git remote set-url origin <new-url>
+
+# Fetch remote refs (no merge)
+  git fetch origin
+
+# Pull with rebase to keep history linear
+  git pull --rebase origin <branch>
+
+# Push current branch
+  git push origin <branch>
+
+# Set upstream (so later plain `git push` works)
+  git push -u origin <branch>
+
+# Prune deleted remote branches from local references
+  git fetch --prune
+
+------------------------------------------------------------
+MERGING, REBASING, CONFLICTS
+------------------------------------------------------------
+# Merge a branch into current branch
+  git merge <branch>
+
+# Rebase current branch on top of target (clean history)
+  git rebase <target-branch>
+
+# Continue/abort rebase
+  git rebase --continue
+  git rebase --abort
+
+# When conflicts occur: edit files, then
+  git add <resolved-files>
+  git rebase --continue   # or `git merge --continue`
+
+------------------------------------------------------------
+STASHING (TEMPORARILY SHELVE CHANGES)
+------------------------------------------------------------
+# Stash tracked changes
+  git stash push -m "message"
+# List stashes
+  git stash list
+# Apply and keep stash
+  git stash apply <stash@{n}>
+# Apply and drop stash
+  git stash pop <stash@{n}>
+
+------------------------------------------------------------
+TAGS & RELEASES
+------------------------------------------------------------
+# Create an annotated tag
+  git tag -a v1.0.0 -m "Release 1.0.0"
+# Push a tag
+  git push origin v1.0.0
+# Push all tags
+  git push origin --tags
+
+------------------------------------------------------------
+UNDO & SAFETY NETS
+------------------------------------------------------------
+# Revert a commit by making a new inverse commit
+  git revert <commit>
+
+# Reset branch pointer (CAUTION)
+  git reset --soft  <commit>   # keep changes staged
+  git reset --mixed <commit>   # default, keep changes in working dir
+  git reset --hard  <commit>   # discard changes
+
+# Restore a file from another commit/branch
+  git restore --source=<commit-or-branch> -- <path>
+
+------------------------------------------------------------
+CLEANUP
+------------------------------------------------------------
+# Remove untracked files (careful!)
+  git clean -fd
+
+------------------------------------------------------------
+COMMON WORKFLOWS
+------------------------------------------------------------
+# 1) Start feature from updated main
+  git switch main
+  git pull --rebase origin main
+  git switch -c feature/xyz
+
+# 2) Commit work and publish branch
+  git add .
+  git commit -m "Implement xyz"
+  git push -u origin feature/xyz
+
+# 3) Update feature with latest main via rebase
+  git fetch origin
+  git rebase origin/main
+
+# 4) Open PR on GitHub, then after merge
+  git switch main
+  git pull --rebase origin main
+  git branch -d feature/xyz
+
+------------------------------------------------------------
+COMMANDS USED IN THIS REPO SESSION
+------------------------------------------------------------
+# Inspect remotes, branch, status
+  git remote -v
+  git rev-parse --abbrev-ref HEAD
+  git status -sb
+
+# Stage and commit learning materials (earlier step)
+  git add .
+  git commit -m "Add comprehensive JavaScript & TypeScript learning materials"
+
+# Resolve divergence and rebase on origin/main
+  git fetch origin
+  git pull --rebase origin main
+
+# Update remote URL to the canonical repo
+  git remote set-url origin git@github.com:Zeref-XXX/learning-intern.git
+
+# Push and set upstream
+  git push -u origin main
+
+# Add this cheatsheet and push
+  git add GIT_COMMANDS.txt
+  git commit -m "Add GIT_COMMANDS.txt cheatsheet of Git commands and use cases"
+  git push
+
+------------------------------------------------------------
+TIPS
+------------------------------------------------------------
+- Prefer `git pull --rebase` to avoid merge bubbles for simple updates.
+- Write clear, imperative commit messages: "Fix bug" not "Fixed bug".
+- Use branches for each unit of work; keep main clean.
+- Use `git log --oneline --graph` to visualize branching.
+- Never `--force` push shared branches unless coordinated.
