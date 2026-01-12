@@ -3,16 +3,18 @@ Topics
 
 # TypeScript Basics
 Why TypeScript ?
-﻿Setting up TypeScript ﻿
-What is tsconfig.json (TS Config JSON)
-Basic types (Basic Types)
+﻿Setting up TypeScript ﻿ (https://code.visualstudio.com/docs/languages/typescript)
+What is tsconfig.json (TS Config JSON) (https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+Basic types (Basic Types) (https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
+
 Variables
-Functions (With Functions)
-Classes (With Classes)
+Functions (With Functions) (https://www.typescriptlang.org/docs/handbook/2/functions.html)
+Classes (With Classes) (https://www.typescriptlang.org/docs/handbook/2/classes.html)
 Interfaces 
 types vs Interfaces
 Public Private Modifiers
 Method Decorators
+(https://www.typescriptlang.org/cheatsheets/)
 ﻿
 ------------------------------
 # Advanced TypeScript 
