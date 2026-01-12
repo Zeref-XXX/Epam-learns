@@ -1,5 +1,3 @@
-# Epam-learns
-
 A comprehensive JavaScript and TypeScript practice repository for learning and experimenting with various programming concepts.
 
 ## 📁 Repository Structure
