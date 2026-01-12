@@ -1,0 +1,23 @@
+{
+  "name": "epam-learns",
+  "version": "1.0.0",
+  "description": "JavaScript and TypeScript practice repository",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "test": "echo \"No tests specified yet\""
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "practice",
+    "learning"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^25.0.6",
+    "typescript": "^5.3.3"
+  }
+}
