@@ -1,0 +1,41 @@
+TypeScript Basics
+Topics
+
+# TypeScript Basics
+Why TypeScript ?
+﻿Setting up TypeScript ﻿
+What is tsconfig.json (TS Config JSON)
+Basic types (Basic Types)
+Variables
+Functions (With Functions)
+Classes (With Classes)
+Interfaces 
+types vs Interfaces
+Public Private Modifiers
+Method Decorators
+﻿
+------------------------------
+# Advanced TypeScript 
+Reference Link - Advanced Types(https://www.typescriptlang.org/docs/handbook/advanced-types.html)
+Generics
+Enums
+union 
+Intersection
+Type guards
+Narrowing
+Working with Modules (Modules)(https://www.typescriptlang.org/docs/handbook/modules/theory.html)
+Modules and Namespace
+Import, Export
+Default and wildcard usage
+
+Integration With Tools and Frameworks	
+Configure TypeScript with 
+Vite 					(https://vite.dev/guide/features.html#typescript)
+Webpack (Integration With Build Tools)	(https://www.typescriptlang.org/docs/handbook/integrating-with-build-tools.html#webpack)
+
+Typescript with Jest for testing
+TypeScript with React, Angular
+Typescript with NodeJS
+Project Reference			(https://www.typescriptlang.org/docs/handbook/project-references.html)
+
+
