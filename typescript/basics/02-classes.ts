@@ -107,18 +107,20 @@ class Car implements Vehicle {
 
 // Usage examples
 const personInstance = new PersonClass("Alice", 30);
-console.log(personInstance.greet());
+console.log(personInstance.greet()); // OUTPUT: Hello, my name is Alice and I'm 30 years old
 
 const employee = new Employee(1, "Bob", "Engineering");
-console.log(employee.getInfo());
+console.log(employee.getInfo()); // OUTPUT: Employee: Bob, Department: Engineering
 
 const manager = new Manager(2, "Charlie", "Product", 5);
-console.log(manager.getManagerInfo());
+console.log(manager.getManagerInfo()); // OUTPUT: Manager: Charlie, Department: Product, Team Size: 5
 
 const dog = new Dog("Buddy");
-console.log(dog.makeSound());
-console.log(dog.move());
+console.log(dog.makeSound()); // OUTPUT: Woof! Woof!
+console.log(dog.move()); // OUTPUT: Buddy is moving
 
 const car = new Car("Toyota", "Camry");
-car.start();
-car.stop();
+car.start(); // OUTPUT: Toyota Camry is starting...
+car.stop(); // OUTPUT: Toyota Camry is stopping...
+
+```

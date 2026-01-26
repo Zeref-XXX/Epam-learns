@@ -33,11 +33,11 @@ const counterModule = (function() {
   };
 })();
 
-console.log("=== Counter Module ===");
-counterModule.increment();
-counterModule.increment();
-counterModule.decrement();
-console.log("Final count:", counterModule.getCount());
+console.log("=== Counter Module ==="); // OUTPUT: === Counter Module ===
+counterModule.increment(); // OUTPUT: Current count: 1
+counterModule.increment(); // OUTPUT: Current count: 2
+counterModule.decrement(); // OUTPUT: Current count: 1
+console.log("Final count:", counterModule.getCount()); // OUTPUT: Final count: 1
 // console.log(counterModule.count); // undefined - private
 
 // Revealing Module Pattern
@@ -93,11 +93,11 @@ const calculatorModule = (function() {
   };
 })();
 
-console.log("\n=== Calculator Module ===");
-console.log("5 + 3 =", calculatorModule.add(5, 3));
-console.log("10 - 4 =", calculatorModule.subtract(10, 4));
-console.log("6 * 7 =", calculatorModule.multiply(6, 7));
-console.log("History:", calculatorModule.getHistory());
+console.log("\n=== Calculator Module ==="); // OUTPUT: === Calculator Module ===
+console.log("5 + 3 =", calculatorModule.add(5, 3)); // OUTPUT: 5 + 3 = 8
+console.log("10 - 4 =", calculatorModule.subtract(10, 4)); // OUTPUT: 10 - 4 = 6
+console.log("6 * 7 =", calculatorModule.multiply(6, 7)); // OUTPUT: 6 * 7 = 42
+console.log("History:", calculatorModule.getHistory()); // OUTPUT: History: [ { operation: 'add', a: 5, b: 3, result: 8 }, ... ]
 
 // Singleton Pattern
 const DatabaseConnection = (function() {
@@ -127,11 +127,11 @@ const DatabaseConnection = (function() {
   };
 })();
 
-console.log("\n=== Singleton Pattern ===");
+console.log("\n=== Singleton Pattern ==="); // OUTPUT: === Singleton Pattern ===
 const db1 = DatabaseConnection.getInstance();
 const db2 = DatabaseConnection.getInstance();
-console.log("Same instance?", db1 === db2); // true
-db1.connect();
+console.log("Same instance?", db1 === db2); // OUTPUT: Same instance? true
+db1.connect(); // OUTPUT: Connected to myapp at localhost:5432
 
 // Factory Pattern
 function createUser(type, name, email) {
@@ -159,14 +159,14 @@ function createUser(type, name, email) {
   return user;
 }
 
-console.log("\n=== Factory Pattern ===");
+console.log("\n=== Factory Pattern ==="); // OUTPUT: === Factory Pattern ===
 const admin = createUser("admin", "Alice", "alice@example.com");
 const editor = createUser("editor", "Bob", "bob@example.com");
 const viewer = createUser("viewer", "Charlie", "charlie@example.com");
 
-console.log(admin.describe(), admin.permissions);
-console.log(editor.describe(), editor.permissions);
-console.log(viewer.describe(), viewer.permissions);
+console.log(admin.describe(), admin.permissions); // OUTPUT: admin: Alice (alice@example.com) [ 'read', 'write', 'delete' ]
+console.log(editor.describe(), editor.permissions); // OUTPUT: editor: Bob (bob@example.com) [ 'read', 'write' ]
+console.log(viewer.describe(), viewer.permissions); // OUTPUT: viewer: Charlie (charlie@example.com) [ 'read' ]
 
 // Observer Pattern (Pub/Sub)
 class EventEmitter {
@@ -196,15 +196,15 @@ class EventEmitter {
   }
 }
 
-console.log("\n=== Observer Pattern ===");
+console.log("\n=== Observer Pattern ==="); // OUTPUT: === Observer Pattern ===
 const emitter = new EventEmitter();
 
 function onUserLogin(username) {
-  console.log(`User logged in: ${username}`);
+  console.log(`User logged in: ${username}`); // OUTPUT: User logged in: Alice
 }
 
 function sendWelcomeEmail(username) {
-  console.log(`Sending welcome email to ${username}`);
+  console.log(`Sending welcome email to ${username}`); // OUTPUT: Sending welcome email to Alice
 }
 
 emitter.on("user:login", onUserLogin);
@@ -216,19 +216,19 @@ emitter.emit("user:login", "Alice");
 const paymentStrategies = {
   creditCard: {
     pay: (amount) => {
-      console.log(`Paid $${amount} using Credit Card`);
+      console.log(`Paid $${amount} using Credit Card`); // OUTPUT: Paid $100 using Credit Card
       return { success: true, method: "creditCard" };
     }
   },
   paypal: {
     pay: (amount) => {
-      console.log(`Paid $${amount} using PayPal`);
+      console.log(`Paid $${amount} using PayPal`); // OUTPUT: Paid $50 using PayPal
       return { success: true, method: "paypal" };
     }
   },
   crypto: {
     pay: (amount) => {
-      console.log(`Paid $${amount} using Cryptocurrency`);
+      console.log(`Paid $${amount} using Cryptocurrency`); // OUTPUT: Paid $200 using Cryptocurrency
       return { success: true, method: "crypto" };
     }
   }
@@ -248,7 +248,7 @@ class PaymentProcessor {
   }
 }
 
-console.log("\n=== Strategy Pattern ===");
+console.log("\n=== Strategy Pattern ==="); // OUTPUT: === Strategy Pattern ===
 const processor = new PaymentProcessor(paymentStrategies.creditCard);
 processor.processPayment(100);
 
@@ -272,7 +272,9 @@ MyApp.api = {
   post: (endpoint, data) => console.log(`POST ${MyApp.api.baseUrl}${endpoint}`, data)
 };
 
-console.log("\n=== Namespace Pattern ===");
-console.log("Generated ID:", MyApp.utils.generateId());
-MyApp.api.get("/users");
-MyApp.api.post("/users", { name: "Alice" });
+console.log("\n=== Namespace Pattern ==="); // OUTPUT: === Namespace Pattern ===
+console.log("Generated ID:", MyApp.utils.generateId()); // OUTPUT: Generated ID: abc123xyz
+MyApp.api.get("/users"); // OUTPUT: GET https://api.example.com/users
+MyApp.api.post("/users", { name: "Alice" }); // OUTPUT: POST https://api.example.com/users { name: 'Alice' }
+
+```

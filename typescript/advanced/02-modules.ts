@@ -183,17 +183,17 @@ namespace Geometry {
 
 // Usage of namespace
 const circle = new Geometry.Circle(5);
-console.log("Circle area:", circle.area());
+console.log("Circle area:", circle.area()); // OUTPUT: Circle area: 78.53981633974483
 
 const rect = new Geometry.Rectangle(10, 20);
-console.log("Rectangle area:", rect.area());
+console.log("Rectangle area:", rect.area()); // OUTPUT: Rectangle area: 200
 
 // ========== Nested Namespaces ==========
 
 namespace App {
   export namespace Utils {
     export function log(message: string): void {
-      console.log(`[LOG] ${message}`);
+      console.log(`[LOG] ${message}`); // OUTPUT: [LOG] Application started
     }
 
     export function error(message: string): void {
@@ -205,7 +205,7 @@ namespace App {
     export const BASE_URL = "https://api.example.com";
 
     export function get(endpoint: string): void {
-      console.log(`GET ${BASE_URL}${endpoint}`);
+      console.log(`GET ${BASE_URL}${endpoint}`); // OUTPUT: GET https://api.example.com/users
     }
 
     export function post(endpoint: string, data: unknown): void {
@@ -286,3 +286,14 @@ console.log("\n=== Module Examples ===");
 console.log("Calculator:", new Calculator().add(5, 3));
 console.log("Constants:", VERSION, APP_NAME);
 console.log("Generate ID:", generateId());
+
+/* OUTPUT:
+[LOG] Application started
+GET https://api.example.com/users
+POST https://api.example.com/users undefined
+
+=== Module Examples ===
+Calculator: 8
+Constants: 1.0.0 MyApp
+Generate ID: abc123xyz
+*/

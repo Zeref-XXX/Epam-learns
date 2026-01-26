@@ -18,8 +18,8 @@ class Animal {
 }
 
 const animal = new Animal("Generic", "Unknown");
-animal.speak();
-console.log(animal.describe());
+animal.speak(); // OUTPUT: Generic makes a sound
+console.log(animal.describe()); // OUTPUT: Generic is a Unknown
 
 // Inheritance
 class Dog extends Animal {
@@ -29,18 +29,18 @@ class Dog extends Animal {
   }
 
   speak() {
-    console.log(`${this.name} barks: Woof!`);
+    console.log(`${this.name} barks: Woof!`); // OUTPUT: Buddy barks: Woof!
   }
 
   fetch() {
-    console.log(`${this.name} is fetching the ball`);
+    console.log(`${this.name} is fetching the ball`); // OUTPUT: Buddy is fetching the ball
   }
 }
 
 const dog = new Dog("Buddy", "Golden Retriever");
 dog.speak();
 dog.fetch();
-console.log(dog.describe());
+console.log(dog.describe()); // OUTPUT: Buddy is a Dog
 
 // Static methods and properties
 class MathHelper {
@@ -55,9 +55,9 @@ class MathHelper {
   }
 }
 
-console.log("Circle area:", MathHelper.circleArea(5));
-console.log("Rectangle area:", MathHelper.rectangleArea(10, 20));
-console.log("PI:", MathHelper.PI);
+console.log("Circle area:", MathHelper.circleArea(5)); // OUTPUT: 78.53981633974483
+console.log("Rectangle area:", MathHelper.rectangleArea(10, 20)); // OUTPUT: 200
+console.log("PI:", MathHelper.PI); // OUTPUT: 3.14159
 
 // Getters and setters
 class Rectangle {
@@ -81,11 +81,11 @@ class Rectangle {
 }
 
 const rect = new Rectangle(10, 5);
-console.log("Rectangle area:", rect.area);
-console.log("Rectangle perimeter:", rect.perimeter);
+console.log("Rectangle area:", rect.area); // OUTPUT: 50
+console.log("Rectangle perimeter:", rect.perimeter); // OUTPUT: 30
 
 rect.dimensions = { width: 20, height: 10 };
-console.log("New area:", rect.area);
+console.log("New area:", rect.area); // OUTPUT: 200
 
 // Private fields (ES2022)
 class BankAccount {
@@ -118,9 +118,9 @@ class BankAccount {
 }
 
 const account = new BankAccount("Alice", 1000);
-account.deposit(500);
-account.withdraw(200);
-console.log("Current balance:", account.getBalance());
+account.deposit(500); // OUTPUT: Deposited $500. New balance: $1500
+account.withdraw(200); // OUTPUT: Withdrew $200. New balance: $1300
+console.log("Current balance:", account.getBalance()); // OUTPUT: 1300
 // console.log(account.#balance); // Error: Private field
 
 // Class expressions
@@ -170,12 +170,37 @@ class Car extends Vehicle {
 }
 
 const car = new Car("Toyota", "Camry", 2023, 4);
-console.log(car.getInfo());
-car.start();
-car.honk();
+console.log(car.getInfo()); // OUTPUT: 2023 Toyota Camry with 4 doors
+car.start(); // OUTPUT: Toyota Camry is starting...
+car.honk(); // OUTPUT: Beep beep!
 
 // Instance checking
-console.log("car instanceof Car:", car instanceof Car); // true
-console.log("car instanceof Vehicle:", car instanceof Vehicle); // true
-console.log("dog instanceof Dog:", dog instanceof Dog); // true
-console.log("dog instanceof Animal:", dog instanceof Animal); // true
+console.log("car instanceof Car:", car instanceof Car); // OUTPUT: true
+console.log("car instanceof Vehicle:", car instanceof Vehicle); // OUTPUT: true
+console.log("dog instanceof Dog:", dog instanceof Dog); // OUTPUT: true
+console.log("dog instanceof Animal:", dog instanceof Animal); // OUTPUT: true
+
+/* OUTPUT:
+Generic makes a sound
+Generic is a Unknown
+Buddy barks: Woof!
+Buddy is fetching the ball
+Buddy is a Dog
+Circle area: 78.53981633974483
+Rectangle area: 200
+PI: 3.14159
+Rectangle area: 50
+Rectangle perimeter: 30
+New area: 200
+Deposited $500. New balance: $1500
+Withdrew $200. New balance: $1300
+Current balance: 1300
+Hi, I'm Bob
+2023 Toyota Camry with 4 doors
+2023 Toyota Camry is starting...
+Beep beep!
+car instanceof Car: true
+car instanceof Vehicle: true
+dog instanceof Dog: true
+dog instanceof Animal: true
+*/

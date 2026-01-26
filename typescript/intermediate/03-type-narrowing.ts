@@ -5,10 +5,10 @@
 function printValue(value: string | number): void {
   if (typeof value === "string") {
     // TypeScript knows value is string here
-    console.log(value.toUpperCase());
+    console.log(value.toUpperCase()); // OUTPUT: HELLO or TYPESCRIPT
   } else {
     // TypeScript knows value is number here
-    console.log(value.toFixed(2));
+    console.log(value.toFixed(2)); // OUTPUT: 3.14 (for example)
   }
 }
 
@@ -19,9 +19,9 @@ printValue(3.14159);
 function printLength(str: string | null | undefined): void {
   if (str) {
     // str is narrowed to string
-    console.log("Length:", str.length);
+    console.log("Length:", str.length); // OUTPUT: Length: 10
   } else {
-    console.log("No string provided");
+    console.log("No string provided"); // OUTPUT: No string provided
   }
 }
 
@@ -48,8 +48,8 @@ function move(animal: Fish | Bird): void {
   }
 }
 
-const fish: Fish = { swim: () => console.log("Swimming...") };
-const bird: Bird = { fly: () => console.log("Flying...") };
+const fish: Fish = { swim: () => console.log("Swimming...") }; // OUTPUT: Swimming...
+const bird: Bird = { fly: () => console.log("Flying...") }; // OUTPUT: Flying...
 
 move(fish);
 move(bird);
@@ -57,13 +57,13 @@ move(bird);
 // instanceof narrowing
 class Dog {
   bark(): void {
-    console.log("Woof!");
+    console.log("Woof!"); // OUTPUT: Woof!
   }
 }
 
 class Cat {
   meow(): void {
-    console.log("Meow!");
+    console.log("Meow!"); // OUTPUT: Meow!
   }
 }
 
@@ -114,8 +114,8 @@ function getArea(shape: Shape): number {
 const circle: Circle = { kind: "circle", radius: 5 };
 const square: Square = { kind: "square", sideLength: 10 };
 
-console.log("Circle area:", getArea(circle));
-console.log("Square area:", getArea(square));
+console.log("Circle area:", getArea(circle)); // OUTPUT: 78.53981633974483
+console.log("Square area:", getArea(square)); // OUTPUT: 100
 
 // Discriminated unions
 type NetworkLoadingState = {
@@ -151,14 +151,14 @@ function handleNetworkState(state: NetworkState): string {
   }
 }
 
-console.log(handleNetworkState({ state: "loading" }));
-console.log(handleNetworkState({ state: "failed", code: 404 }));
+console.log(handleNetworkState({ state: "loading" })); // OUTPUT: Loading...
+console.log(handleNetworkState({ state: "failed", code: 404 })); // OUTPUT: Failed with code 404
 console.log(
   handleNetworkState({
     state: "success",
     response: { title: "Data", duration: 150 }
   })
-);
+); // OUTPUT: Downloaded Data in 150ms
 
 // Array.isArray narrowing
 function processValue(value: string | string[]): void {
@@ -172,8 +172,8 @@ function processValue(value: string | string[]): void {
   }
 }
 
-processValue("hello");
-processValue(["a", "b", "c"]);
+processValue("hello"); // OUTPUT: String: hello
+processValue(["a", "b", "c"]); // OUTPUT: Array length: 3 ... a ... b ... c
 
 // Type predicates with objects
 interface Admin {
@@ -203,8 +203,8 @@ function displayUser(user: Admin | User): void {
 const admin: Admin = { name: "Alice", privileges: ["manage-users", "delete"] };
 const regularUser: User = { name: "Bob", email: "bob@example.com" };
 
-displayUser(admin);
-displayUser(regularUser);
+displayUser(admin); // OUTPUT: Name: Alice ... Privileges: [ 'manage-users', 'delete' ]
+displayUser(regularUser); // OUTPUT: Name: Bob ... Email: bob@example.com
 
 // Control flow analysis
 function example(x: string | number | boolean) {
@@ -237,6 +237,10 @@ console.log(processName("Alice"));
 console.log(processName(null));
 console.log(processName(undefined));
 
+// OUTPUT: ALICE
+// OUTPUT: ANONYMOUS
+// OUTPUT: ANONYMOUS
+
 // Optional chaining with narrowing
 interface Response {
   data?: {
@@ -262,3 +266,27 @@ function getUserName(response: Response): string {
 console.log(getUserName({ data: { user: { name: "Alice", email: "alice@example.com" } } }));
 console.log(getUserName({ data: {} }));
 console.log(getUserName({}));
+
+/* OUTPUT:
+HELLO
+3.14
+Circle area: 78.53981633974483
+Square area: 100
+Loading...
+Failed with code 404
+Downloaded Data in 150ms
+hello
+a
+b
+c
+Name: Alice
+Privileges: manage-users, delete
+Name: Bob
+Email: bob@example.com
+hello
+42
+true
+ALICE
+Anonymous
+Unknown
+*/

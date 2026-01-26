@@ -30,7 +30,7 @@ const updateUser: PartialUser = {
   // Other properties are optional
 };
 
-console.log("Partial User:", updateUser);
+console.log("Partial User:", updateUser); // OUTPUT: { name: 'Alice', email: 'alice@example.com' }
 
 // ========== Required<T> ==========
 // Makes all properties required
@@ -50,7 +50,7 @@ const config: RequiredConfig = {
   // All properties are now required
 };
 
-console.log("Required Config:", config);
+console.log("Required Config:", config); // OUTPUT: { host: 'localhost', port: 3000, ssl: true }
 
 // ========== Readonly<T> ==========
 // Makes all properties readonly
@@ -68,7 +68,7 @@ const user: ReadonlyUser = {
 
 // user.name = "Charlie"; // Error: Cannot assign to 'name' because it is a read-only property
 
-console.log("Readonly User:", user.name);
+console.log("Readonly User:", user.name); // OUTPUT: Bob
 
 // ========== Pick<T, K> ==========
 // Creates type by picking specific properties
@@ -82,7 +82,7 @@ const preview: UserPreview = {
   // password, age, isActive are not included
 };
 
-console.log("User Preview:", preview);
+console.log("User Preview:", preview); // OUTPUT: { id: 1, name: 'Alice', email: 'alice@example.com' }
 
 // ========== Omit<T, K> ==========
 // Creates type by omitting specific properties
@@ -98,7 +98,7 @@ const safeUser: UserWithoutPassword = {
   // password is omitted
 };
 
-console.log("Safe User:", safeUser);
+console.log("Safe User:", safeUser); // OUTPUT: { id: 2, name: 'Bob', email: 'bob@example.com', age: 25, isActive: true }
 
 // ========== Record<K, T> ==========
 // Constructs object type with keys K and values T
@@ -113,7 +113,7 @@ const permissions: RolePermissions = {
   guest: ["read"]
 };
 
-console.log("Permissions:", permissions);
+console.log("Permissions:", permissions); // OUTPUT: { admin: [ 'read', 'write', 'delete' ], user: [ 'read', 'write' ], guest: [ 'read' ] }
 
 // Record with string keys
 type PageInfo = Record<string, { title: string; url: string }>;
@@ -124,7 +124,7 @@ const pages: PageInfo = {
   contact: { title: "Contact", url: "/contact" }
 };
 
-console.log("Pages:", pages);
+console.log("Pages:", pages); // OUTPUT: { home: { title: 'Home', url: '/' }, about: { title: 'About', url: '/about' }, contact: { title: 'Contact', url: '/contact' } }
 
 // ========== Exclude<T, U> ==========
 // Excludes types from union
@@ -135,7 +135,7 @@ type ActiveStatus = Exclude<AllStatus, "deleted">;
 const status: ActiveStatus = "active";
 // const deleted: ActiveStatus = "deleted"; // Error
 
-console.log("Active Status:", status);
+console.log("Active Status:", status); // OUTPUT: active
 
 // ========== Extract<T, U> ==========
 // Extracts types from union
@@ -146,7 +146,7 @@ type PrimitiveTypes = Extract<AllTypes, string | number>;
 const value: PrimitiveTypes = "hello";
 // const nullValue: PrimitiveTypes = null; // Error
 
-console.log("Primitive Value:", value);
+console.log("Primitive Value:", value); // OUTPUT: hello
 
 // ========== NonNullable<T> ==========
 // Removes null and undefined from type
@@ -157,7 +157,7 @@ type DefiniteString = NonNullable<MaybeString>;
 const str: DefiniteString = "Hello";
 // const nullStr: DefiniteString = null; // Error
 
-console.log("Definite String:", str);
+console.log("Definite String:", str); // OUTPUT: Hello
 
 // ========== ReturnType<T> ==========
 // Gets return type of function
@@ -178,7 +178,7 @@ const retrievedUser: UserType = {
   email: "bob@example.com"
 };
 
-console.log("Retrieved User:", retrievedUser);
+console.log("Retrieved User:", retrievedUser); // OUTPUT: { id: 2, name: 'Bob', email: 'bob@example.com' }
 
 // ========== Parameters<T> ==========
 // Gets parameter types as tuple
@@ -192,7 +192,7 @@ type CreateProductParams = Parameters<typeof createProduct>;
 const params: CreateProductParams = [1, "Laptop", 999];
 const product = createProduct(...params);
 
-console.log("Product:", product);
+console.log("Product:", product); // OUTPUT: { id: 1, title: 'Laptop', price: 999 }
 
 // ========== ConstructorParameters<T> ==========
 // Gets constructor parameter types
@@ -206,7 +206,7 @@ type PersonParams = ConstructorParameters<typeof Person>;
 const personParams: PersonParams = ["Alice", 30];
 const person = new Person(...personParams);
 
-console.log("Person:", person);
+console.log("Person:", person); // OUTPUT: { name: 'Alice', age: 30 }
 
 // ========== InstanceType<T> ==========
 // Gets instance type of constructor
@@ -215,7 +215,7 @@ type PersonInstance = InstanceType<typeof Person>;
 
 const instance: PersonInstance = new Person("Bob", 25);
 
-console.log("Instance:", instance);
+console.log("Instance:", instance); // OUTPUT: { name: 'Bob', age: 25 }
 
 // ========== Awaited<T> ==========
 // Unwraps Promise types
@@ -262,7 +262,7 @@ const userStatuses: UserStatusMap = {
   2: { name: "Bob", isActive: false }
 };
 
-console.log("User Statuses:", userStatuses);
+console.log("User Statuses:", userStatuses); // OUTPUT: { 1: { name: 'Alice', isActive: true }, 2: { name: 'Bob', isActive: false } }
 
 // ========== Custom Utility Types ==========
 
@@ -295,7 +295,7 @@ const partialConfig: PartialConfig = {
   }
 };
 
-console.log("Partial Config:", partialConfig);
+console.log("Partial Config:", partialConfig); // OUTPUT: { database: { host: 'localhost' } }
 
 // Mutable (opposite of Readonly)
 type Mutable<T> = {
@@ -315,7 +315,7 @@ const mutablePerson: MutablePerson = {
 };
 
 mutablePerson.name = "Bob"; // Now mutable
-console.log("Mutable Person:", mutablePerson);
+console.log("Mutable Person:", mutablePerson); // OUTPUT: { name: 'Bob', age: 30 }
 
 // ========== Practical Examples ==========
 
@@ -342,7 +342,7 @@ const apiResponse: UserResponse = {
   timestamp: new Date()
 };
 
-console.log("API Response:", apiResponse);
+console.log("API Response:", apiResponse); // OUTPUT: { data: { id: 1, name: 'Alice', email: 'alice@example.com', age: 30, isActive: true }, status: 200, message: 'Success', timestamp: Date }
 
 // Form state
 type FormState<T> = {
@@ -367,4 +367,4 @@ const formState: UserFormState = {
   }
 };
 
-console.log("Form State:", formState);
+console.log("Form State:", formState); // OUTPUT: { values: { name: 'Alice', email: 'alice@example.com' }, errors: { email: 'Invalid email format' }, touched: { name: true, email: true } }

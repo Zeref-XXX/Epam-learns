@@ -33,10 +33,10 @@ function sum(...numbers) {
 }
 
 // Examples
-console.log(greet("Alice"));
-console.log(add(5, 3));
-console.log(multiply(4, 7));
-console.log(divide(10, 2));
-console.log(introduce("Bob"));
-console.log(introduce("Charlie", 30));
-console.log(sum(1, 2, 3, 4, 5));
+console.log(greet("Alice")); // Hello, Alice!
+console.log(add(5, 3)); // 8
+console.log(multiply(4, 7)); // 28
+console.log(divide(10, 2)); // 5
+console.log(introduce("Bob")); // My name is Bob and I am 25 years old
+console.log(introduce("Charlie", 30)); // My name is Charlie and I am 30 years old
+console.log(sum(1, 2, 3, 4, 5)); // 15

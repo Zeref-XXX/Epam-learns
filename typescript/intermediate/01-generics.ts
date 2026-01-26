@@ -6,19 +6,19 @@ function identity<T>(arg: T): T {
   return arg;
 }
 
-console.log(identity<string>("Hello"));
-console.log(identity<number>(42));
+console.log(identity<string>("Hello")); // OUTPUT: Hello
+console.log(identity<number>(42)); // OUTPUT: 42
 
 // Generic with type inference
-console.log(identity("TypeScript")); // Type inferred as string
+console.log(identity("TypeScript")); // OUTPUT: TypeScript (Type inferred as string)
 
 // Generic array function
 function getFirstElement<T>(arr: T[]): T | undefined {
   return arr[0];
 }
 
-console.log(getFirstElement([1, 2, 3]));
-console.log(getFirstElement(["a", "b", "c"]));
+console.log(getFirstElement([1, 2, 3])); // OUTPUT: 1
+console.log(getFirstElement(["a", "b", "c"])); // OUTPUT: a
 
 // Generic interface
 interface Container<T> {
@@ -40,10 +40,10 @@ class Box<T> implements Container<T> {
 }
 
 const numberBox = new Box<number>(100);
-console.log("Number box:", numberBox.getValue());
+console.log("Number box:", numberBox.getValue()); // OUTPUT: 100
 
 const stringBox = new Box<string>("Hello");
-console.log("String box:", stringBox.getValue());
+console.log("String box:", stringBox.getValue()); // OUTPUT: Hello
 
 // Generic class with constraints
 interface Lengthwise {
@@ -54,8 +54,8 @@ function logLength<T extends Lengthwise>(arg: T): void {
   console.log("Length:", arg.length);
 }
 
-logLength("Hello"); // string has length
-logLength([1, 2, 3]); // array has length
+logLength("Hello"); // OUTPUT: Length: 5 (string has length)
+logLength([1, 2, 3]); // OUTPUT: Length: 3 (array has length)
 // logLength(42); // Error: number doesn't have length
 
 // Generic with multiple type parameters
@@ -63,8 +63,8 @@ function pair<K, V>(key: K, value: V): [K, V] {
   return [key, value];
 }
 
-console.log(pair<string, number>("age", 30));
-console.log(pair("name", "Alice")); // Type inference
+console.log(pair<string, number>("age", 30)); // OUTPUT: ["age", 30]
+console.log(pair("name", "Alice")); // OUTPUT: ["name", "Alice"] (Type inference)
 
 // Generic utility types
 interface UserData {
@@ -119,5 +119,7 @@ const numList = [1, 2, 3, 4, 5];
 const doubled = map(numList, n => n * 2);
 const strList = map(numList, n => `Number: ${n}`);
 
-console.log("Doubled:", doubled);
-console.log("Strings:", strList);
+console.log("Doubled:", doubled); // OUTPUT: [ 2, 4, 6, 8, 10 ]
+console.log("Strings:", strList); // OUTPUT: [ 'Number: 1', 'Number: 2', 'Number: 3', 'Number: 4', 'Number: 5' ]
+
+```

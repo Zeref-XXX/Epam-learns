@@ -3,18 +3,22 @@
 
 // Basic types
 let username: string = "John Doe";
+
 let age: number = 30;
 let isActive: boolean = true;
 let userId: number | string = 123; // Union type
 
 // Arrays
 let numberList: number[] = [1, 2, 3, 4, 5];
-let stringList: Array<string> = ["hello", "world"];
+// let stringList: string[] = ["hello", "world"];
+let stringList: Array<string> = ["hello", "world"]; //genric type hai
 
-// Tuples
-let personTuple: [string, number] = ["Alice", 25];
+// Tuples (smsya hai toda sa)
+let personTuple: [string, number,string] = ["Alice", 25,"abhii"];
 
-// Enums
+let custom:[string,boolean[]]=["hello",[true,false]]
+
+// Enums (smsya hai)
 enum Color {
   Red,
   Green,
@@ -29,22 +33,21 @@ enum UserStatus {
 }
 
 // Interfaces
-interface User {
+interface Users {
   id: number;
   name: string;
   email: string;
-  age?: number; // Optional property
+  ages?: number; // Optional property
   readonly createdAt: Date; // Readonly property
 }
 
-const user: User = {
+const user1: Users = {
   id: 1,
   name: "Bob Smith",
   email: "bob@example.com",
   createdAt: new Date()
 };
-
-// Type alias
+// Type alias //used for union  types
 type Point = {
   x: number;
   y: number;
@@ -53,8 +56,8 @@ type Point = {
 const point: Point = { x: 10, y: 20 };
 
 // Function types
-function add(a: number, b: number): number {
-  return a + b;
+function addd(a: number = 0, b: number): number {
+  return a+b;
 }
 
 const multiply: (a: number, b: number) => number = (a, b) => a * b;
@@ -71,9 +74,10 @@ let someValue: any = "this is a string";
 let strLength: number = (someValue as string).length;
 
 // Console outputs
-console.log("User:", user);
-console.log("Point:", point);
-console.log("Addition:", add(5, 3));
-console.log("Multiplication:", multiply(4, 7));
-console.log("Color enum:", favoriteColor);
-console.log("UserStatus:", UserStatus.Active);
+console.log("User:", user1); // OUTPUT: { id: 1, name: 'Bob Smith', email: 'bob@example.com', createdAt: 2024-01-26T... }
+console.log("Point:", point); // OUTPUT: { x: 10, y: 20 }
+console.log("Addition:", addd(undefined, 3)); // OUTPUT: 3
+console.log("Multiplication:", multiply(4, 7)); // OUTPUT: 28
+console.log("Color enum:", favoriteColor); // OUTPUT: 2
+console.log("UserStatus:", UserStatus.Active); // OUTPUT: ACTIVE
+

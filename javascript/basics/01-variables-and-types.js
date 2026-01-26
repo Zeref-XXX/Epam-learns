@@ -20,17 +20,17 @@ let object = {
 };
 
 // Type checking
-console.log("Type of string:", typeof string);
-console.log("Type of number:", typeof number);
-console.log("Type of boolean:", typeof boolean);
-console.log("Type of array:", typeof array); // Note: returns 'object'
-console.log("Is array?:", Array.isArray(array));
+console.log("Type of string:", typeof string); // Type of string: string
+console.log("Type of number:", typeof number); // Type of number: number
+console.log("Type of boolean:", typeof boolean); // Type of boolean: boolean
+console.log("Type of array:", typeof array); // Note: returns 'object' => Type of array: object
+console.log("Is array?:", Array.isArray(array)); // Is array?: true
 
 // Basic operations
-console.log("String concatenation:", "Hello" + " " + "World");
-console.log("Number addition:", 10 + 20);
-console.log("Boolean logic:", true && false);
+console.log("String concatenation:", "Hello" + " " + "World"); // String concatenation: Hello World
+console.log("Number addition:", 10 + 20); // Number addition: 30
+console.log("Boolean logic:", true && false); // Boolean logic: false
 
 // Template literals
 const templateString = `Hello, my name is ${myName}`;
-console.log(templateString);
+console.log(templateString); // Hello, my name is John

@@ -53,8 +53,8 @@ class Calculator {
 }
 
 const calc = new Calculator();
-console.log(calc.add(5, 3));
-console.log(calc.multiply(4, 7));
+console.log(calc.add(5, 3)); // OUTPUT: Calling add with args: [5, 3] ... Result: 8 ... 8
+console.log(calc.multiply(4, 7)); // OUTPUT: Calling multiply with args: [4, 7] ... Result: 28 ... 28
 
 // Factory decorator
 function logExecution(showArgs: boolean = true) {
@@ -91,21 +91,21 @@ class Service {
 }
 
 const service = new Service();
-service.process("hello");
-service.save("world");
+service.process("hello"); // OUTPUT: Executing process with: ['hello'] ... HELLO
+service.save("world"); // OUTPUT: Executing save ... Saving: world
 
 // Multiple decorators
 function first() {
-  console.log("First decorator factory");
+  console.log("First decorator factory"); // OUTPUT: First decorator factory
   return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-    console.log("First decorator called");
+    console.log("First decorator called"); // OUTPUT: First decorator called
   };
 }
 
 function second() {
-  console.log("Second decorator factory");
+  console.log("Second decorator factory"); // OUTPUT: Second decorator factory
   return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-    console.log("Second decorator called");
+    console.log("Second decorator called"); // OUTPUT: Second decorator called
   };
 }
 
@@ -116,3 +116,5 @@ class Example {
     console.log("Method called");
   }
 }
+
+```

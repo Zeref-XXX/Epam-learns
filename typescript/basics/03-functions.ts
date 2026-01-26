@@ -6,7 +6,7 @@ function add(a: number, b: number): number {
   return a + b;
 }
 
-console.log("5 + 3 =", add(5, 3));
+console.log("5 + 3 =", add(5, 3)); // OUTPUT: 5 + 3 = 8
 
 // Optional parameters
 function greet(name: string, greeting?: string): string {
@@ -16,31 +16,31 @@ function greet(name: string, greeting?: string): string {
   return `Hello, ${name}!`;
 }
 
-console.log(greet("Alice"));
-console.log(greet("Bob", "Good morning"));
+console.log(greet("Alice")); // OUTPUT: Hello, Alice!
+console.log(greet("Bob", "Good morning")); // OUTPUT: Good morning, Bob!
 
 // Default parameters
 function createUser(name: string, age: number = 18, role: string = "user"): object {
   return { name, age, role };
 }
 
-console.log(createUser("Charlie"));
-console.log(createUser("Dave", 25));
-console.log(createUser("Eve", 30, "admin"));
+console.log(createUser("Charlie")); // OUTPUT: { name: 'Charlie', age: 18, role: 'user' }
+console.log(createUser("Dave", 25)); // OUTPUT: { name: 'Dave', age: 25, role: 'user' }
+console.log(createUser("Eve", 30, "admin")); // OUTPUT: { name: 'Eve', age: 30, role: 'admin' }
 
 // Rest parameters
 function sum(...numbers: number[]): number {
   return numbers.reduce((total, num) => total + num, 0);
 }
 
-console.log("Sum:", sum(1, 2, 3, 4, 5));
+console.log("Sum:", sum(1, 2, 3, 4, 5)); // OUTPUT: Sum: 15
 
 // Arrow functions
 const multiply = (a: number, b: number): number => a * b;
 const square = (n: number): number => n * n;
 
-console.log("4 * 7 =", multiply(4, 7));
-console.log("5 squared =", square(5));
+console.log("4 * 7 =", multiply(4, 7)); // OUTPUT: 4 * 7 = 28
+console.log("5 squared =", square(5)); // OUTPUT: 5 squared = 25
 
 // Function types
 type MathOperation = (a: number, b: number) => number;
@@ -52,12 +52,12 @@ const divide: MathOperation = (a, b) => {
 
 const subtract: MathOperation = (a, b) => a - b;
 
-console.log("10 / 2 =", divide(10, 2));
-console.log("10 - 3 =", subtract(10, 3));
+console.log("10 / 2 =", divide(10, 2)); // OUTPUT: 10 / 2 = 5
+console.log("10 - 3 =", subtract(10, 3)); // OUTPUT: 10 - 3 = 7
 
 // Void return type
 function logMessage(message: string): void {
-  console.log("LOG:", message);
+  console.log("LOG:", message); // OUTPUT: LOG: This is a log message
 }
 
 logMessage("This is a log message");
@@ -86,8 +86,8 @@ function combine(a: string | number, b: string | number): string | number {
   throw new Error("Invalid arguments");
 }
 
-console.log("Combine strings:", combine("Hello", " World"));
-console.log("Combine numbers:", combine(10, 20));
+console.log("Combine strings:", combine("Hello", " World")); // OUTPUT: Combine strings: Hello World
+console.log("Combine numbers:", combine(10, 20)); // OUTPUT: Combine numbers: 30
 
 // Generic functions
 function identity<T>(arg: T): T {
@@ -97,6 +97,11 @@ function identity<T>(arg: T): T {
 function getFirstElement<T>(arr: T[]): T | undefined {
   return arr[0];
 }
+
+console.log(identity<string>("TypeScript")); // OUTPUT: TypeScript
+console.log(identity<number>(42)); // OUTPUT: 42
+console.log(getFirstElement([1, 2, 3])); // OUTPUT: 1
+console.log(getFirstElement(["a", "b", "c"])); // OUTPUT: a
 
 console.log(identity<string>("TypeScript"));
 console.log(identity<number>(42));
@@ -201,3 +206,29 @@ async function displayUsers() {
 }
 
 displayUsers();
+
+/* OUTPUT:
+5 + 3 = 8
+Good morning, Alice!
+Hello, Bob!
+Sum: 15
+4 * 7 = 28
+5 squared = 25
+10 / 2 = 5
+10 - 3 = 7
+LOG: This is a log message
+Combine strings: Hello World
+Combine numbers: 30
+TypeScript
+1
+[Data from API]
+User: { id: 1, name: 'User 1' }
+Apply add: 8
+Apply multiply: 15
+Hello, I'm Alice
+Double 5: 10
+Triple 5: 15
+HELLO
+3.14
+[Alice, Bob, Charlie]
+*/

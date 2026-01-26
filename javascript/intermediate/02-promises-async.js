@@ -15,14 +15,14 @@ function fetchUserData(userId) {
 }
 
 // Using Promise with .then()
-console.log("Fetching user data...");
+console.log("Fetching user data..."); // OUTPUT: Fetching user data...
 fetchUserData(1)
   .then(user => {
-    console.log("User data:", user);
+    console.log("User data:", user); // OUTPUT: User data: { id: 1, name: 'User 1' }
     return user.id;
   })
   .then(id => {
-    console.log("User ID:", id);
+    console.log("User ID:", id); // OUTPUT: User ID: 1
   })
   .catch(error => {
     console.error("Error:", error.message);
@@ -32,7 +32,7 @@ fetchUserData(1)
 async function getUserData(userId) {
   try {
     const user = await fetchUserData(userId);
-    console.log("User data (async/await):", user);
+    console.log("User data (async/await):", user); // OUTPUT: User data (async/await): { id: 5, name: 'User 5' }
     return user;
   } catch (error) {
     console.error("Error (async/await):", error.message);
@@ -47,7 +47,7 @@ async function fetchMultipleUsers() {
       fetchUserData(2),
       fetchUserData(3)
     ]);
-    console.log("All users:", users);
+    console.log("All users:", users); // OUTPUT: All users: [ { id: 1, ... }, { id: 2, ... }, { id: 3, ... } ]
   } catch (error) {
     console.error("Error fetching users:", error.message);
   }
@@ -60,8 +60,19 @@ async function raceExample() {
     fetchUserData(2),
     fetchUserData(3)
   ]);
-  console.log("Fastest:", fastest);
+  console.log("Fastest:", fastest); // OUTPUT: Fastest: { id: 1, name: 'User 1' }
 }
 
 // Example usage
 getUserData(5);
+
+/* OUTPUT:
+Fetching user data...
+User data: { id: 1, name: 'User 1' }
+User ID: 1
+User data (async/await): { id: 5, name: 'User 5' }
+All users: [ { id: 1, name: 'User 1' }, { id: 2, name: 'User 2' }, { id: 3, name: 'User 3' } ]
+Fastest: { id: 1, name: 'User 1' }
+*/
+
+```

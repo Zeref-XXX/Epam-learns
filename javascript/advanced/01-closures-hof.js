@@ -21,10 +21,10 @@ function createCounter() {
 }
 
 const counter = createCounter();
-console.log(counter.increment()); // 1
-console.log(counter.increment()); // 2
-console.log(counter.getCount());  // 2
-console.log(counter.decrement()); // 1
+console.log(counter.increment()); // OUTPUT: 1
+console.log(counter.increment()); // OUTPUT: 2
+console.log(counter.getCount());  // OUTPUT: 2
+console.log(counter.decrement()); // OUTPUT: 1
 
 // Currying
 function curry(fn) {
@@ -42,9 +42,9 @@ function curry(fn) {
 const multiply = (a, b, c) => a * b * c;
 const curriedMultiply = curry(multiply);
 
-console.log(curriedMultiply(2)(3)(4)); // 24
-console.log(curriedMultiply(2, 3)(4)); // 24
-console.log(curriedMultiply(2)(3, 4)); // 24
+console.log(curriedMultiply(2)(3)(4)); // OUTPUT: 24
+console.log(curriedMultiply(2, 3)(4)); // OUTPUT: 24
+console.log(curriedMultiply(2)(3, 4)); // OUTPUT: 24
 
 // Function composition
 const compose = (...fns) => x => fns.reduceRight((v, f) => f(v), x);
@@ -57,8 +57,8 @@ const square = x => x * x;
 const composedFn = compose(square, double, addOne);
 const pipedFn = pipe(addOne, double, square);
 
-console.log(composedFn(3)); // square(double(addOne(3))) = square(8) = 64
-console.log(pipedFn(3));    // square(double(addOne(3))) = square(8) = 64
+console.log(composedFn(3)); // OUTPUT: 64 (square(double(addOne(3))) = square(8) = 64)
+console.log(pipedFn(3));    // OUTPUT: 64 (square(double(addOne(3))) = square(8) = 64)
 
 // Memoization
 function memoize(fn) {
@@ -84,5 +84,20 @@ const fibonacci = memoize(function(n) {
   return fibonacci(n - 1) + fibonacci(n - 2);
 });
 
-console.log(fibonacci(10)); // Computes
-console.log(fibonacci(10)); // Cache hit
+console.log(fibonacci(10)); // Computes // OUTPUT: 55
+console.log(fibonacci(10)); // Cache hit // OUTPUT: 55
+
+/* OUTPUT:
+1
+2
+2
+1
+64
+64
+Computing for: [10]
+55
+Cache hit for: [10]
+55
+*/
+
+```

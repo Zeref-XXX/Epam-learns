@@ -15,7 +15,7 @@ function handleStatus(status: RequestStatus): string {
   }
 }
 
-console.log(handleStatus("success"));
+console.log(handleStatus("success")); // OUTPUT: Operation successful
 
 // Intersection types
 interface Nameable {
@@ -51,8 +51,8 @@ function processValue(value: string | number): string {
   return "";
 }
 
-console.log(processValue("hello"));
-console.log(processValue(21));
+console.log(processValue("hello")); // OUTPUT: HELLO
+console.log(processValue(21)); // OUTPUT: 42
 
 // Discriminated unions
 interface Circle {
@@ -89,9 +89,9 @@ const circle: Circle = { kind: "circle", radius: 5 };
 const rectangle: Rectangle = { kind: "rectangle", width: 10, height: 20 };
 const triangle: Triangle = { kind: "triangle", base: 10, height: 15 };
 
-console.log("Circle area:", getArea(circle));
-console.log("Rectangle area:", getArea(rectangle));
-console.log("Triangle area:", getArea(triangle));
+console.log("Circle area:", getArea(circle)); // OUTPUT: 78.53981633974483
+console.log("Rectangle area:", getArea(rectangle)); // OUTPUT: 200
+console.log("Triangle area:", getArea(triangle)); // OUTPUT: 75
 
 // Conditional types
 type IsString<T> = T extends string ? true : false;
@@ -145,5 +145,7 @@ function combine(a: any, b: any): any {
   return a + b;
 }
 
-console.log(combine("Hello", " World"));
-console.log(combine(10, 20));
+console.log(combine("Hello", " World")); // OUTPUT: Hello World
+console.log(combine(10, 20)); // OUTPUT: 30
+
+```
