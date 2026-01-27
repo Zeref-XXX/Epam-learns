@@ -32,7 +32,7 @@ const result = numbers
   .filter(num => num % 2 === 0)
   .map(num => num * 2)
   .reduce((acc, num) => acc + num, 0);
-console.log("Chain result:", result); // OUTPUT: 48
+console.log("Chain result:", result); // OUTPUT: 60
 
 // Working with objects
 const users = [
